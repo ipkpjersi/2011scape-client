@@ -1,6 +1,8 @@
 package com.jagex;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jagex3.jagmisc.jagmisc;
 
@@ -218,6 +220,12 @@ public class Class126
 			}
 			if (string.equals("heap")) {
 				Node_Sub7.method2422((byte) 43, "Heap: " + Class201.anInt2446 + "MB");
+				return;
+			}
+			if (string.equals("screenshot")) {
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd-HH_mm_ss");
+				String dateTime = dateFormat.format(new Date());
+				client.saveScreenshot("2011Scape_" + dateTime + ".png");
 				return;
 			}
 			if (string.equalsIgnoreCase("getcamerapos")) {
