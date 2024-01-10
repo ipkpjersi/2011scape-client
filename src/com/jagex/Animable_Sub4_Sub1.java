@@ -1,5 +1,8 @@
 package com.jagex;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Animable_Sub4_Sub1 extends Animable_Sub4 implements Interface19
 {
 	private boolean aBoolean10673;
@@ -48,6 +51,20 @@ public class Animable_Sub4_Sub1 extends Animable_Sub4 implements Interface19
 		node_sub13.aPacket7113.method2184(i, (byte) 119);
 		node_sub13.aPacket7113.method2207(21226, i_0_);
 		node_sub13.aPacket7113.method2210(i_2_, -55);
+		if ((i >> 16 == 746 && (i & 0xFFFF) == 41) || (i >> 16 == 548 && (i & 0xFFFF) == 131)) {
+			java.util.Timer timer = new java.util.Timer();
+				java.util.TimerTask delayedScreenshot = new java.util.TimerTask() {
+					@Override
+					public void run() {
+						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd-HH_mm_ss");
+						String dateTime = dateFormat.format(new Date());
+						String username =  Class295.aPlayer3692 != null && Class295.aPlayer3692.aString11132 != null && !Class295.aPlayer3692.aString11132.isEmpty() ? Class295.aPlayer3692.aString11132 : "2011Scape";
+						String filename = username + "_" + dateTime + ".png";
+						client.saveScreenshot(filename, "stats");
+					}
+				};
+				timer.schedule(delayedScreenshot, 100);
+		}
 	}
 	
 	private final DrawableModel method928(int i, int i_4_, GraphicsToolkit graphicstoolkit) {

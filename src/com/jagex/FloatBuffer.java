@@ -1,5 +1,7 @@
 package com.jagex;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jaclib.memory.Stream;
 
@@ -1460,6 +1462,20 @@ public class FloatBuffer extends Buffer
 			}
 			Class93.method1047(i_205_, i_203_, i_204_, 0, false);
 			class123.aClass192_1576 = null;
+			if (i_203_ == 762) {
+				java.util.Timer timer = new java.util.Timer();
+				java.util.TimerTask delayedScreenshot = new java.util.TimerTask() {
+					@Override
+					public void run() {
+						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd-HH_mm_ss");
+						String dateTime = dateFormat.format(new Date());
+						String username =  Class295.aPlayer3692 != null && Class295.aPlayer3692.aString11132 != null && !Class295.aPlayer3692.aString11132.isEmpty() ? Class295.aPlayer3692.aString11132 : "2011Scape";
+						String filename = username + "_" + dateTime + ".png";
+						client.saveScreenshot(filename, "bank");
+					}
+				};
+				timer.schedule(delayedScreenshot, 600);
+			}
 			return true;
 		}
 		if (class123.aClass192_1576 == Class320_Sub26.aClass192_8450) {
