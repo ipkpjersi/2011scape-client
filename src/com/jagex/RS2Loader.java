@@ -141,7 +141,7 @@ public class RS2Loader extends Applet {
 		appletPanel.setLayout(new BorderLayout());
 		appletPanel.add(this);
 		if (ENABLE_LARGE_FRAME) {
-			appletPanel.setPreferredSize(new Dimension(1450, 795));
+			appletPanel.setPreferredSize(new Dimension(765, 543));
 		} else {
 			appletPanel.setPreferredSize(new Dimension(765, 503));
 		}
